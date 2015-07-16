@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boatlet</title>
+    <style>
+      html, body {
+		  height: 100%;
+		  text-align: center;
+		  background-color: #1a1a1a;
+		}
+
+canvas#canvas {
+  background-color: #dbfeff;
+  border-radius: 100%;
+  position: relative;
+  top: 50%;
+  /*transform: translateY(-50%)*/
+}
+
+/* go on then, styles go here.. knock yourself out! */
+
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+html{
+  height:100%;
+}
+img{
+  max-width:100%;
+}
+body{
+  height:100%;
+  font-size:10px;
+  line-height:1;
+}
+.profile-card {
+	z-index: 1000;
+	top: 100px;
+  position: absolute;
+  left: 40%;
+  width: 300px;
+  color:#1BB2CD;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:100;
+  font-size:1.8em;
+  padding-top: 110px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+.profile-card h1 {
+  font-size: 2em;
+}
+.profile-card h2 {
+  font-style: italic;
+}
+.profile-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border-left: 2px solid #1BB2CD;
+  border-top: 2px solid #1BB2CD;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.profile-card:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border-right: 2px solid #1BB2CD;
+  border-bottom: 2px solid #1BB2CD;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.profile-card header > a {
+  position: absolute;  
+  top: -20px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  left: 50%;
+  margin-left: -49px;
+  transform: rotate(45deg);
+}
+.profile-card header > a img {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: -20%;
+  max-width: inherit;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+}
+.profile-social-links {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  margin-left: -25px;
+}
+/* .profile-social-links li {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  background:rgba(255,255,255,1);
+  transform: rotate(-45deg);
+  transition:500ms ease all;
+  box-sizing: border-box;
+} */
+.profile-bio {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+/* .profile-social-links li:nth-child(2) {
+  left: -37px;
+  margin-bottom: 37px;
+}
+.profile-social-links li:nth-child(3) {
+  left: 37px;
+  margin-bottom: 37px;
+}
+.profile-social-links li:hover{
+  background:rgba(255,255,255,0);  
+  transition: 250ms ease all;
+}
+.profile-social-links li:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0px;
+  width: 0px;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  transition: 250ms ease width 500ms, 250ms ease height 750ms;
+  box-sizing: border-box;
+}
+.profile-social-links li:hover:before {
+  height: 100%;
+  width: 100%;
+  transition: 250ms ease height , 250ms ease width 250ms;
+}
+.profile-social-links li:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 0px;
+  width: 0px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transition: 0ms ease opacity 500ms,250ms ease width , 250ms ease height 250ms;
+  box-sizing: border-box;
+  opacity:0;
+}
+.profile-social-links li:hover:after {
+  height: 100%;
+  width: 100%;
+  opacity:1;
+  transition: 0ms ease opacity 500ms,250ms ease height 500ms , 250ms ease width 750ms;
+  
+}
+.profile-social-links li a {
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 80%;
+  left: 10%;
+  top: 10%;
+  height: 80%;
+  text-decoration: none;
+  color: rgb(89, 214, 236);
+  text-align: center;
+  line-height: 40px;
+  font-size: 1.5em;
+   transition: 500ms ease all; 
+  z-index: 2;
+}
+
+.profile-social-links li:hover a {
+  color:#fff;
+} */
+.profile-bio {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 500ms ease-out all;
+  line-height: 1.5;
+}
+.profile-card:hover .profile-bio {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 1em;
+}
+    </style>
+  </head>
+  <body>
+  <aside class="profile-card">
+
+  <header>
+
+    <!-- here’s the avatar -->
+    <a href="#">
+      <img src="saber-eating.jpg">
+    </a>
+
+    <!-- the username -->
+    <h1>Boatlet</h1>
+
+    <!-- and role or location -->
+    <h2>sixGod 成员</h2>
+
+  </header>
+
+  <!-- bit of a bio; who are you? -->
+  <div class="profile-bio">
+
+    <p>技术控，创意控，向往碧海蓝天</p>
+
+  </div>
+
+ 
+
+</aside>
+<!-- that’s all folks! -->
+    <div class="cvs">
+      <canvas id="canvas" width="800" height="800"></canvas>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.9.23/paper-full.js">
+  </script>
+  <script>
+  (function () {
+    'use strict';
+    var onloadDo;
+    onloadDo = function () {
+        var addPath, addPoints, animatePath, canvas, i, j, n, opacity, path, paths, ref, view;
+        canvas = document.getElementById('canvas');
+        paper.setup(canvas);
+        view = paper.project.view;
+        paths = new paper.Group();
+        addPoints = function (path, quantity) {
+            var i, j, ref, x, y;
+            path.add(view.bounds.bottomLeft);
+            for (i = j = -1, ref = quantity + 1; j <= ref; i = j += 1) {
+                /*if (window.CP.shouldStopExecution(1)) {
+                    break;
+                }*/
+                x = view.viewSize.width / quantity * i;
+                y = view.viewSize.height / 1.618;
+                path.add(new paper.Point(x, y));
+            }
+            // window.CP.exitedLoop(1);
+            return path.add(view.bounds.bottomRight);
+        };
+        addPath = function (quantity, color, opacity) {
+            var path;
+            path = new paper.Path();
+            path.fillColor = color;
+            path.opacity = opacity;
+            addPoints(path, quantity);
+            path.smooth();
+            return path;
+        };
+        animatePath = function (path, event, index) {
+            var i, j, len, ref, results, segment, sin;
+            ref = path.segments;
+            results = [];
+            for (i = j = 0, len = ref.length; j < len; i = ++j) {
+                /*if (window.CP.shouldStopExecution(2)) {
+                    break;
+                }*/
+                segment = ref[i];
+                if (i > 0 && i < path.segments.length - 1) {
+                    sin = Math.sin(event.time * 3 + i - index);
+                    results.push(segment.point.y = sin * 15 + view.viewSize.height / 1.618 + index * 15);
+                } else {
+                    results.push(void 0);
+                }
+            }
+            //window.CP.exitedLoop(2);
+            return results;
+        };
+        n = 8;
+        opacity = 1 / (n / 2);
+        for (i = j = 1, ref = n; j <= ref; i = j += 1) {
+           /* if (window.CP.shouldStopExecution(3)) {
+                break;
+            }*/
+            path = addPath(8 - i, '#21f8f6', i * opacity);
+            path.position.y += 25 * i;
+            paths.addChild(path);
+        }
+        //window.CP.exitedLoop(3);
+        view.onFrame = function (event) {
+            var k, len, ref1, results;
+            ref1 = paths.children;
+            results = [];
+            for (i = k = 0, len = ref1.length; k < len; i = ++k) {
+                /*if (window.CP.shouldStopExecution(4)) {
+                    break;
+                }*/
+                path = ref1[i];
+                results.push(animatePath(path, event, i));
+            }
+            //window.CP.exitedLoop(4);
+            return results;
+        };
+        console.log('###');
+        view.draw();
+        return null;
+    };
+    window.onload = onloadDo;
+}.call(this));
+  </script>
+</html>
